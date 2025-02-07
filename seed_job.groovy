@@ -8,6 +8,8 @@ job('simple-freestyle-job') {
         
         // test.txt dosyasını oluşturur
         shell('echo "This is a test file" > test.txt')
+
+        shell('echo "en son burayı ekledim."')
     }
     
     triggers {
