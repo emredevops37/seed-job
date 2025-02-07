@@ -11,6 +11,6 @@ job('simple-freestyle-job') {
     }
     
     triggers {
-        scm('H/5 * * * *') // Kaynak kod değişikliklerini her 5 dakikada kontrol eder
+        scm('* * * * *') // Kaynak kod değişikliklerini her 5 dakikada kontrol eder
     }
 }
