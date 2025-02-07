@@ -3,14 +3,18 @@ job('simple-freestyle-job') {
     keepDependencies(false)
     
     steps {
+        // "Hello, Jenkins!" mesajını ekrana yazdırır
         shell('echo "Hello, Jenkins! This is a freestyle job created using DSL."')
-    }
-    
-    publishers {
-        archiveArtifacts('**/target/*.jar') // Eğer bir çıktı dosyasını saklamak istiyorsanız
+        
+        // test.txt dosyasını oluşturur
+        shell('echo "This is a test file" > test.txt')
     }
     
     triggers {
-        scm('H/5 * * * *') // Kaynak kod değişikliklerini her 5 dakikada kontrol eder
+        // Kaynak kod değişikliklerini her 5 dakikada kontrol eder
+        scm('* * * * *')
     }
+
+    // Node seçimini agent (any) gibi düşünebilmek için kullanılabilir
+    label('any')
 }
